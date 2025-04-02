@@ -3,10 +3,10 @@ name: tests
 env:
   PY_COLORS: 1
 
-on:
-  push:
-    branches: [main]
-  pull_request:
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -45,7 +45,7 @@ jobs:
           echo "COVERAGE_CORE=sysmon" >> $GITHUB_ENV
 
       - name: Run tests with pytest
-        run: pytest --cov=template --cov-report=xml
+        run: pytest --cov=FUSION --cov-report=xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
